@@ -7,7 +7,6 @@ import "./ToolBar.scss";
 import { customAlphabet } from "nanoid";
 import { useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import Popup from "../RaisedContainer/PopUp";
 
 function ToolBar({ promptText, setPromptText }) {
   const API_KEY = "AIzaSyBSSw__qdi-2LfTX5TLzgRGNtH8R7jhQPo";
@@ -46,11 +45,10 @@ function ToolBar({ promptText, setPromptText }) {
     setShowSessionMenu(false);
     setJoinSessionInput(false);
   });
-  
 
   const fetchDataReturnComplexity = async () => {
     const prompt = `What is the time complexity of the following code?\n\n${promptText}`;
-    
+
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -62,6 +60,10 @@ function ToolBar({ promptText, setPromptText }) {
     console.log(textResult);
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className="ToolBar" ref={outRef}>
@@ -88,13 +90,36 @@ function ToolBar({ promptText, setPromptText }) {
         <button
           style={{ marginRight: "30px" }}
           className="gemini_analyze"
-          onClick={async () => {
-            await fetchDataReturnComplexity();
-          }}
-         
+          // onClick={async () => {
+          //   await fetchDataReturnComplexity();
+          // }}
+          onClick={handleShow}
         >
           <span className="gradient-text"> Analyze Complexity</span>
         </button>
+        {show && (
+          <div className="modal" onClick={handleClose}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <span className="close" onClick={handleClose}>
+                  &times;
+                </span>
+                <h2>Modal heading</h2>
+              </div>
+              <div className="modal-body">
+                <p>Woohoo, you are reading this text in a modal!</p>
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" onClick={handleClose}>
+                  Close
+                </button>
+                <button className="btn btn-primary" onClick={handleClose}>
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {isSaving && (
           <span

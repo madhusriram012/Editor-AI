@@ -6,8 +6,6 @@ import FancyButton from "../../FancyButton/FancyButton";
 import FolderTree from "../../FolderTree/FolderTree";
 import "./LeftPane.scss";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import "../../RaisedContainer/Popup.css";
-
 
 function LeftPane() {
   const API_KEY = "AIzaSyBSSw__qdi-2LfTX5TLzgRGNtH8R7jhQPo";
@@ -45,7 +43,7 @@ function LeftPane() {
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const prompt = text || "What's different between these pictures?";
+    const prompt = text || "";
     const files = event.target.elements.images.files;
     const imageParts = await Promise.all([...files].map(fileToGenerativePart));
 
@@ -54,7 +52,18 @@ function LeftPane() {
     const textResult = await response.text();
     setLoading(false);
     setResult(textResult);
+
+    // Clear the text input and file input
+    setText("");
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className="LeftPane">
@@ -170,21 +179,36 @@ function LeftPane() {
                   <input type="file" id="fileInput" name="images" multiple />
                 </div>
                 <br />
-                <FancyButton type="submit">
+                <FancyButton type="submit" onClick={handleShow}>
                   {loading ? "Loading....." : "BARD IT"}
                 </FancyButton>
               </form>
-
               <br />
-              {/* <div className="resultview">
-                <h2>Result:</h2>
-                <p>{result}</p>
-              </div> */}
-
-              {result && (
-                <div>
-                  <h2>Result:</h2>
-                  <p>{result}</p>
+              {show && (
+                <div className="modal" onClick={handleClose}>
+                  <div
+                    className="modal-content"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="modal-header">
+                      <span className="close" onClick={handleClose}>
+                        &times;
+                      </span>
+                      <h2>Answer</h2>
+                    </div>
+                    <div className="modal-body">
+                      <p>{result}</p>
+                    </div>
+                    <div className="modal-footer">
+                      <FancyButton
+                        className="btn btn-secondary"
+                        onClick={handleClose}
+                      >
+                        Close
+                      </FancyButton>
+                      
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
