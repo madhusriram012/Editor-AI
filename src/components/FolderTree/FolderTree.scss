@@ -1,0 +1,88 @@
+.File {
+  @include box(100%, 22px);
+  position: relative;
+
+  & > span {
+    @include box();
+    @include make-flex($dir: row, $just: flex-start);
+    cursor: pointer;
+    white-space: pre;
+    user-select: none;
+    p {
+      font-size: 15px;
+    }
+  }
+  &:hover {
+    background-color: var(--daima-list-hoverBackground);
+  }
+
+  &__intentBox {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 13px;
+    pointer-events: none;
+    display: inline-flex;
+
+  }
+}
+
+[data-intent] {
+  // content: "";
+  height: 100%;
+  margin-right: 10px;
+  pointer-events: none;
+  border-left: 1px solid var(--daima-tree-indentGuidesStroke);
+  transition: border-color 0.1s linear;
+}
+
+.Folder {
+  @include box(100%, 22px);
+
+  position: relative;
+  &__title {
+    user-select: none;
+    @include box();
+    padding-left: 6px;
+    @include make-flex($dir: row, $just: flex-start);
+    cursor: pointer;
+    white-space: pre;
+    position: relative;
+
+    & > span {
+      @include box();
+      @include make-flex($dir: row, $just: flex-start);
+      font-size: 15px;
+    }
+
+    &:hover {
+      background-color: var(--daima-list-hoverBackground);
+    }
+    &--logo {
+      &Open,
+      &Closed {
+        @include make-flex($dir: row, $just: flex-start);
+        gap: 6px;
+      }
+
+      &Open::before {
+        transform: rotate(0deg);
+        transition: transform 8ms ease-in-out;
+      }
+      &Closed::before {
+        transform: rotate(-90deg);
+        transition: transform 8ms ease-in-out;
+      }
+    }
+  }
+
+  &__intentBox {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 13px;
+    pointer-events: none;
+    display: inline-flex;
+    z-index: 1;
+  }
+}

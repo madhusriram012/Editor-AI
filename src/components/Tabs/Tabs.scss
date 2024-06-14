@@ -1,0 +1,59 @@
+.TabsWrapper {
+  @include box(100%, 35px);
+  @include make-flex($dir: row, $just: flex-start);
+  overflow-x: auto;
+  // border-bottom: 1.5px solid var(--daima-tree-indentGuidesStroke);
+  background-color: var(--daima-editorGroupHeader-tabsBackground);
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  &--item,
+  &--activeItem {
+    position: relative;
+    list-style: none;
+    @include box(auto, 100%);
+    @include make-flex($dir: row);
+    gap: 8px;
+
+    // border-top-left-radius: 5px;
+    // border-top-right-radius: 5px;
+    // border-left: 1px solid var(--daima-tab-border);
+    border-right: 1px solid var(--daima-tab-border);
+
+    cursor: pointer;
+    span {
+      &:first-child {
+        @include box();
+        padding: 0 32px 0 10px;
+      }
+
+      p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 114px;
+      }
+
+      &:last-child {
+        position: absolute;
+        right: 6px;
+        padding: 1.5px;
+
+        &:hover {
+          background-color: var(--daima-toolbar-hoverBackground);
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  &--item {
+    background-color: var(--daima-tab-inactiveBackground);
+  }
+  &--activeItem {
+    background-color: var(--daima-tab-activeBackground);
+  }
+}

@@ -1,0 +1,25 @@
+.BreadCrumbsWrapper {
+  @include box();
+  @include make-flex($dir: row, $just: flex-start);
+  padding: 0 10px;
+  gap: 3px;
+  background-color: var(--daima-breadcrumb-background);
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  &__crumb {
+    @include make-flex($dir: row, $just: flex-start);
+    gap: 3px;
+    color: var(--daima-breadcrumb-foreground);
+    text-transform: capitalize;
+    font-size: 13px;
+    user-select: none;
+    span {
+      transform: rotate(-90deg);
+    }
+  }
+}

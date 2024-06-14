@@ -1,0 +1,9 @@
+.DijkstraGrid {
+  @include box(auto, auto);
+  @include make-flex();
+  gap: 5px;
+  &__row {
+    @include make-flex($dir: row);
+    gap: 5px;
+  }
+}

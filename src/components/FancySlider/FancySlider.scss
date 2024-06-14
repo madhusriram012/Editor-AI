@@ -1,0 +1,54 @@
+.FancySlider {
+  appearance: none;
+  appearance: none;
+  &:focus {
+    outline: none;
+  }
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  &::-moz-range-thumb {
+    border: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  @include box(100%, 35px);
+  padding: 0 13px;
+  background: var(--daima-editorPane-background);
+  border-radius: 4px;
+  border: 1.5px solid var(--daima-tree-indentGuidesStroke);
+
+  @mixin track-style {
+    display: flex;
+    align-items: center;
+    height: 7px;
+    border-radius: 10px;
+    background-color: var(--daima-inputOption-hoverBackground);
+  }
+
+  @mixin thumb-style {
+    position: relative;
+    top: -60%;
+    @include box(16px, 16px);
+    background-color: var(--daima-input-foreground);
+    border-radius: 50%;
+    cursor: ew-resize;
+  }
+  &::-webkit-slider-runnable-track {
+    @include track-style;
+  }
+  &::-webkit-slider-thumb {
+    @include thumb-style;
+  }
+  &::-moz-range-track {
+    @include track-style;
+  }
+  &::-moz-range-thumb {
+    @include thumb-style;
+  }
+}

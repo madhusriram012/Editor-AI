@@ -1,0 +1,593 @@
+.blackboard {
+  --daima-foreground: #cccccc;
+  --daima-blurred-spinner: #4c4c4c7d;
+  --daima-dangerForeground: #ff525f;
+  --daima-disabledForeground: rgba(204, 204, 204, 0.5);
+  --daima-errorForeground: #f48771;
+  --daima-descriptionForeground: rgba(204, 204, 204, 0.7);
+  --daima-icon-foreground: #c5c5c5;
+  --daima-focusBorder: #007fd4;
+  --daima-textSeparator-foreground: rgba(255, 255, 255, 0.18);
+  --daima-textLink-foreground: #3794ff;
+  --daima-textLink-activeForeground: #3794ff;
+  --daima-textPreformat-foreground: #d7ba7d;
+  --daima-textBlockQuote-background: rgba(127, 127, 127, 0.1);
+  --daima-textBlockQuote-border: rgba(0, 122, 204, 0.5);
+  --daima-textCodeBlock-background: rgba(10, 10, 10, 0.4);
+  --daima-widget-shadow: rgba(0, 0, 0, 0.36);
+  --daima-input-background: #3c3c3c;
+  --daima-input-foreground: #cccccc;
+  --daima-inputOption-activeBorder: rgba(0, 122, 204, 0);
+  --daima-inputOption-hoverBackground: rgba(90, 93, 94, 0.5);
+  --daima-inputOption-activeBackground: rgba(0, 127, 212, 0.4);
+  --daima-inputOption-activeForeground: #ffffff;
+  --daima-input-placeholderForeground: rgba(204, 204, 204, 0.5);
+  --daima-inputValidation-infoBackground: #063b49;
+  --daima-inputValidation-infoBorder: #007acc;
+  --daima-inputValidation-warningBackground: #352a05;
+  --daima-inputValidation-warningBorder: #b89500;
+  --daima-inputValidation-errorBackground: #5a1d1d;
+  --daima-inputValidation-errorBorder: #be1100;
+  --daima-dropdown-background: #3c3c3c;
+  --daima-dropdown-foreground: #f0f0f0;
+  --daima-dropdown-border: #3c3c3c;
+  --daima-checkbox-background: #3c3c3c;
+  --daima-checkbox-foreground: #f0f0f0;
+  --daima-checkbox-border: #3c3c3c;
+  --daima-button-foreground: #ffffff;
+  --daima-button-separator: rgba(255, 255, 255, 0.4);
+  --daima-button-background: #0e639c;
+  --daima-button-hoverBackground: #1177bb;
+  --daima-button-secondaryForeground: #ffffff;
+  --daima-button-secondaryBackground: #3a3d41;
+  --daima-button-secondaryHoverBackground: #45494e;
+  --daima-badge-background: #4d4d4d;
+  --daima-badge-foreground: #ffffff;
+  --daima-scrollbar-shadow: #000000;
+  --daima-scrollbarSlider-background: rgba(121, 121, 121, 0.4);
+  --daima-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
+  --daima-scrollbarSlider-activeBackground: rgba(191, 191, 191, 0.4);
+  --daima-progressBar-background: #0e70c0;
+  --daima-editorError-foreground: #f14c4c;
+  --daima-editorWarning-foreground: #cca700;
+  --daima-editorInfo-foreground: #3794ff;
+  --daima-editorHint-foreground: rgba(238, 238, 238, 0.7);
+  --daima-sash-hoverBorder: #007fd4;
+  --daima-editor-background: #0c1021;
+  --daima-editor-foreground: #f8f8f8;
+  --daima-editorStickyScroll-background: #0c1021;
+  --daima-editorStickyScrollHover-background: #2a2d2e;
+  --daima-editorWidget-background: #252526;
+  --daima-editorWidget-foreground: #cccccc;
+  --daima-editorWidget-border: #454545;
+  --daima-quickInput-background: #252526;
+  --daima-quickInput-foreground: #cccccc;
+  --daima-quickInputTitle-background: rgba(255, 255, 255, 0.1);
+  --daima-pickerGroup-foreground: #3794ff;
+  --daima-pickerGroup-border: #3f3f46;
+  --daima-keybindingLabel-background: rgba(128, 128, 128, 0.17);
+  --daima-keybindingLabel-foreground: #cccccc;
+  --daima-keybindingLabel-border: rgba(51, 51, 51, 0.6);
+  --daima-keybindingLabel-bottomBorder: rgba(68, 68, 68, 0.6);
+  --daima-editor-selectionBackground: #253b76;
+  --daima-editor-inactiveSelectionBackground: rgba(37, 59, 118, 0.5);
+  --daima-editor-selectionHighlightBackground: rgba(27, 43, 87, 0.6);
+  --daima-editor-findMatchBackground: #515c6a;
+  --daima-editor-findMatchHighlightBackground: rgba(234, 92, 0, 0.33);
+  --daima-editor-findRangeHighlightBackground: rgba(58, 61, 65, 0.4);
+  --daima-searchEditor-findMatchBackground: rgba(234, 92, 0, 0.22);
+  --daima-editor-hoverHighlightBackground: rgba(38, 79, 120, 0.25);
+  --daima-editorHoverWidget-background: #252526;
+  --daima-editorHoverWidget-foreground: #cccccc;
+  --daima-editorHoverWidget-border: #454545;
+  --daima-editorHoverWidget-statusBarBackground: #2c2c2d;
+  --daima-editorLink-activeForeground: #4e94ce;
+  --daima-editorInlayHint-foreground: rgba(255, 255, 255, 0.8);
+  --daima-editorInlayHint-background: rgba(77, 77, 77, 0.6);
+  --daima-editorInlayHint-typeForeground: rgba(255, 255, 255, 0.8);
+  --daima-editorInlayHint-typeBackground: rgba(77, 77, 77, 0.6);
+  --daima-editorInlayHint-parameterForeground: rgba(255, 255, 255, 0.8);
+  --daima-editorInlayHint-parameterBackground: rgba(77, 77, 77, 0.6);
+  --daima-editorLightBulb-foreground: #ffcc00;
+  --daima-editorLightBulbAutoFix-foreground: #75beff;
+  --daima-diffEditor-insertedTextBackground: rgba(156, 204, 44, 0.2);
+  --daima-diffEditor-removedTextBackground: rgba(255, 0, 0, 0.4);
+  --daima-diffEditor-insertedLineBackground: rgba(155, 185, 85, 0.2);
+  --daima-diffEditor-removedLineBackground: rgba(255, 0, 0, 0.2);
+  --daima-diffEditor-diagonalFill: rgba(204, 204, 204, 0.2);
+  --daima-list-focusOutline: #007fd4;
+  --daima-list-activeSelectionBackground: #04395e;
+  --daima-list-activeSelectionForeground: #ffffff;
+  --daima-list-inactiveSelectionBackground: #37373d;
+  --daima-list-hoverBackground: #2a2d2e;
+  --daima-list-dropBackground: #062f4a;
+  --daima-list-highlightForeground: #2aaaff;
+  --daima-list-focusHighlightForeground: #2aaaff;
+  --daima-list-invalidItemForeground: #b89500;
+  --daima-list-errorForeground: #f88070;
+  --daima-list-warningForeground: #cca700;
+  --daima-listFilterWidget-background: #252526;
+  --daima-listFilterWidget-outline: rgba(0, 0, 0, 0);
+  --daima-listFilterWidget-noMatchesOutline: #be1100;
+  --daima-listFilterWidget-shadow: rgba(0, 0, 0, 0.36);
+  --daima-list-filterMatchBackground: rgba(234, 92, 0, 0.33);
+  --daima-tree-indentGuidesStroke: #585858;
+  --daima-tree-tableColumnsBorder: rgba(204, 204, 204, 0.13);
+  --daima-tree-tableOddRowsBackground: rgba(204, 204, 204, 0.04);
+  --daima-list-deemphasizedForeground: #8c8c8c;
+  --daima-quickInputList-focusForeground: #ffffff;
+  --daima-quickInputList-focusBackground: #04395e;
+  --daima-menu-foreground: #f0f0f0;
+  --daima-menu-background: #3c3c3c;
+  --daima-menu-selectionForeground: #ffffff;
+  --daima-menu-selectionBackground: #04395e;
+  --daima-menu-separatorBackground: #606060;
+  --daima-toolbar-hoverBackground: rgba(90, 93, 94, 0.31);
+  --daima-toolbar-activeBackground: rgba(99, 102, 103, 0.31);
+  --daima-editor-snippetTabstopHighlightBackground: rgba(124, 124, 124, 0.3);
+  --daima-editor-snippetFinalTabstopHighlightBorder: #525252;
+  --daima-breadcrumb-foreground: rgba(204, 204, 204, 0.8);
+  --daima-breadcrumb-background: #0c1021;
+  --daima-breadcrumb-focusForeground: #e0e0e0;
+  --daima-breadcrumb-activeSelectionForeground: #e0e0e0;
+  --daima-breadcrumbPicker-background: #252526;
+  --daima-merge-currentHeaderBackground: rgba(64, 200, 174, 0.5);
+  --daima-merge-currentContentBackground: rgba(64, 200, 174, 0.2);
+  --daima-merge-incomingHeaderBackground: rgba(64, 166, 255, 0.5);
+  --daima-merge-incomingContentBackground: rgba(64, 166, 255, 0.2);
+  --daima-merge-commonHeaderBackground: rgba(96, 96, 96, 0.4);
+  --daima-merge-commonContentBackground: rgba(96, 96, 96, 0.16);
+  --daima-editorOverviewRuler-currentContentForeground: rgba(
+    64,
+    200,
+    174,
+    0.5
+  );
+  --daima-editorOverviewRuler-incomingContentForeground: rgba(
+    64,
+    166,
+    255,
+    0.5
+  );
+  --daima-editorOverviewRuler-commonContentForeground: rgba(96, 96, 96, 0.4);
+  --daima-editorOverviewRuler-findMatchForeground: rgba(209, 134, 22, 0.49);
+  --daima-editorOverviewRuler-selectionHighlightForeground: rgba(
+    160,
+    160,
+    160,
+    0.8
+  );
+  --daima-minimap-findMatchHighlight: #d18616;
+  --daima-minimap-selectionOccurrenceHighlight: #676767;
+  --daima-minimap-selectionHighlight: #264f78;
+  --daima-minimap-errorHighlight: rgba(255, 18, 18, 0.7);
+  --daima-minimap-warningHighlight: #cca700;
+  --daima-minimap-foregroundOpacity: #000000;
+  --daima-minimapSlider-background: rgba(121, 121, 121, 0.2);
+  --daima-minimapSlider-hoverBackground: rgba(100, 100, 100, 0.35);
+  --daima-minimapSlider-activeBackground: rgba(191, 191, 191, 0.2);
+  --daima-problemsErrorIcon-foreground: #f14c4c;
+  --daima-problemsWarningIcon-foreground: #cca700;
+  --daima-problemsInfoIcon-foreground: #3794ff;
+  --daima-charts-foreground: #cccccc;
+  --daima-charts-lines: rgba(204, 204, 204, 0.5);
+  --daima-charts-red: #f14c4c;
+  --daima-charts-blue: #3794ff;
+  --daima-charts-yellow: #cca700;
+  --daima-charts-orange: #d18616;
+  --daima-charts-green: #89d185;
+  --daima-charts-purple: #b180d7;
+  --daima-editor-lineHighlightBackground: rgba(255, 255, 255, 0.06);
+  --daima-editor-lineHighlightBorder: #282828;
+  --daima-editor-rangeHighlightBackground: rgba(255, 255, 255, 0.04);
+  --daima-editor-symbolHighlightBackground: rgba(234, 92, 0, 0.33);
+  --daima-editorCursor-foreground: rgba(255, 255, 255, 0.65);
+  --daima-editorWhitespace-foreground: rgba(255, 255, 255, 0.25);
+  --daima-editorIndentGuide-background: rgba(255, 255, 255, 0.25);
+  --daima-editorIndentGuide-activeBackground: rgba(255, 255, 255, 0.25);
+  --daima-editorLineNumber-foreground: #858585;
+  --daima-editorActiveLineNumber-foreground: #c6c6c6;
+  --daima-editorLineNumber-activeForeground: #c6c6c6;
+  --daima-editorRuler-foreground: #5a5a5a;
+  --daima-editorCodeLens-foreground: #999999;
+  --daima-editorBracketMatch-background: rgba(0, 100, 0, 0.1);
+  --daima-editorBracketMatch-border: #888888;
+  --daima-editorOverviewRuler-border: rgba(127, 127, 127, 0.3);
+  --daima-editorGutter-background: #0c1021;
+  --daima-editorUnnecessaryCode-opacity: rgba(0, 0, 0, 0.67);
+  --daima-editorGhostText-foreground: rgba(255, 255, 255, 0.34);
+  --daima-editorOverviewRuler-rangeHighlightForeground: rgba(0, 122, 204, 0.6);
+  --daima-editorOverviewRuler-errorForeground: rgba(255, 18, 18, 0.7);
+  --daima-editorOverviewRuler-warningForeground: #cca700;
+  --daima-editorOverviewRuler-infoForeground: #3794ff;
+  --daima-editorBracketHighlight-foreground1: #ffd700;
+  --daima-editorBracketHighlight-foreground2: #da70d6;
+  --daima-editorBracketHighlight-foreground3: #179fff;
+  --daima-editorBracketHighlight-foreground4: rgba(0, 0, 0, 0);
+  --daima-editorBracketHighlight-foreground5: rgba(0, 0, 0, 0);
+  --daima-editorBracketHighlight-foreground6: rgba(0, 0, 0, 0);
+  --daima-editorBracketHighlight-unexpectedBracket-foreground: rgba(
+    255,
+    18,
+    18,
+    0.8
+  );
+  --daima-editorBracketPairGuide-background1: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-background2: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-background3: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-background4: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-background5: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-background6: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-activeBackground1: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-activeBackground2: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-activeBackground3: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-activeBackground4: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-activeBackground5: rgba(0, 0, 0, 0);
+  --daima-editorBracketPairGuide-activeBackground6: rgba(0, 0, 0, 0);
+  --daima-editorUnicodeHighlight-border: #bd9b03;
+  --daima-editorUnicodeHighlight-background: rgba(189, 155, 3, 0.15);
+  --daima-symbolIcon-arrayForeground: #cccccc;
+  --daima-symbolIcon-booleanForeground: #cccccc;
+  --daima-symbolIcon-classForeground: #ee9d28;
+  --daima-symbolIcon-colorForeground: #cccccc;
+  --daima-symbolIcon-constantForeground: #cccccc;
+  --daima-symbolIcon-constructorForeground: #b180d7;
+  --daima-symbolIcon-enumeratorForeground: #ee9d28;
+  --daima-symbolIcon-enumeratorMemberForeground: #75beff;
+  --daima-symbolIcon-eventForeground: #ee9d28;
+  --daima-symbolIcon-fieldForeground: #75beff;
+  --daima-symbolIcon-fileForeground: #cccccc;
+  --daima-symbolIcon-folderForeground: #cccccc;
+  --daima-symbolIcon-functionForeground: #b180d7;
+  --daima-symbolIcon-interfaceForeground: #75beff;
+  --daima-symbolIcon-keyForeground: #cccccc;
+  --daima-symbolIcon-keywordForeground: #cccccc;
+  --daima-symbolIcon-methodForeground: #b180d7;
+  --daima-symbolIcon-moduleForeground: #cccccc;
+  --daima-symbolIcon-namespaceForeground: #cccccc;
+  --daima-symbolIcon-nullForeground: #cccccc;
+  --daima-symbolIcon-numberForeground: #cccccc;
+  --daima-symbolIcon-objectForeground: #cccccc;
+  --daima-symbolIcon-operatorForeground: #cccccc;
+  --daima-symbolIcon-packageForeground: #cccccc;
+  --daima-symbolIcon-propertyForeground: #cccccc;
+  --daima-symbolIcon-referenceForeground: #cccccc;
+  --daima-symbolIcon-snippetForeground: #cccccc;
+  --daima-symbolIcon-stringForeground: #cccccc;
+  --daima-symbolIcon-structForeground: #cccccc;
+  --daima-symbolIcon-textForeground: #cccccc;
+  --daima-symbolIcon-typeParameterForeground: #cccccc;
+  --daima-symbolIcon-unitForeground: #cccccc;
+  --daima-symbolIcon-variableForeground: #75beff;
+  --daima-editorHoverWidget-highlightForeground: #2aaaff;
+  --daima-editorOverviewRuler-bracketMatchForeground: #a0a0a0;
+  --daima-editor-foldBackground: rgba(37, 59, 118, 0.3);
+  --daima-editorGutter-foldingControlForeground: #c5c5c5;
+  --daima-editor-linkedEditingBackground: rgba(255, 0, 0, 0.3);
+  --daima-editor-wordHighlightBackground: rgba(87, 87, 87, 0.72);
+  --daima-editor-wordHighlightStrongBackground: rgba(0, 73, 114, 0.72);
+  --daima-editorOverviewRuler-wordHighlightForeground: rgba(
+    160,
+    160,
+    160,
+    0.8
+  );
+  --daima-editorOverviewRuler-wordHighlightStrongForeground: rgba(
+    192,
+    160,
+    192,
+    0.8
+  );
+  --daima-peekViewTitle-background: rgba(55, 148, 255, 0.1);
+  --daima-peekViewTitleLabel-foreground: #ffffff;
+  --daima-peekViewTitleDescription-foreground: rgba(204, 204, 204, 0.7);
+  --daima-peekView-border: #3794ff;
+  --daima-peekViewResult-background: #252526;
+  --daima-peekViewResult-lineForeground: #bbbbbb;
+  --daima-peekViewResult-fileForeground: #ffffff;
+  --daima-peekViewResult-selectionBackground: rgba(51, 153, 255, 0.2);
+  --daima-peekViewResult-selectionForeground: #ffffff;
+  --daima-peekViewEditor-background: #001f33;
+  --daima-peekViewEditorGutter-background: #001f33;
+  --daima-peekViewResult-matchHighlightBackground: rgba(234, 92, 0, 0.3);
+  --daima-peekViewEditor-matchHighlightBackground: rgba(255, 143, 0, 0.6);
+  --daima-editorMarkerNavigationError-background: #f14c4c;
+  --daima-editorMarkerNavigationError-headerBackground: rgba(241, 76, 76, 0.1);
+  --daima-editorMarkerNavigationWarning-background: #cca700;
+  --daima-editorMarkerNavigationWarning-headerBackground: rgba(
+    204,
+    167,
+    0,
+    0.1
+  );
+  --daima-editorMarkerNavigationInfo-background: #3794ff;
+  --daima-editorMarkerNavigationInfo-headerBackground: rgba(55, 148, 255, 0.1);
+  --daima-editorMarkerNavigation-background: #0c1021;
+  --daima-editorSuggestWidget-background: #252526;
+  --daima-editorSuggestWidget-border: #454545;
+  --daima-editorSuggestWidget-foreground: #f8f8f8;
+  --daima-editorSuggestWidget-selectedForeground: #ffffff;
+  --daima-editorSuggestWidget-selectedBackground: #04395e;
+  --daima-editorSuggestWidget-highlightForeground: #2aaaff;
+  --daima-editorSuggestWidget-focusHighlightForeground: #2aaaff;
+  --daima-editorSuggestWidgetStatus-foreground: rgba(248, 248, 248, 0.5);
+  --daima-tab-activeBackground: #0c1021;
+  --daima-tab-unfocusedActiveBackground: #0c1021;
+  --daima-tab-inactiveBackground: #2d2d2d;
+  --daima-tab-unfocusedInactiveBackground: #2d2d2d;
+  --daima-tab-activeForeground: #ffffff;
+  --daima-tab-inactiveForeground: rgba(255, 255, 255, 0.5);
+  --daima-tab-unfocusedActiveForeground: rgba(255, 255, 255, 0.5);
+  --daima-tab-unfocusedInactiveForeground: rgba(255, 255, 255, 0.25);
+  --daima-tab-border: #252526;
+  --daima-tab-lastPinnedBorder: #585858;
+  --daima-tab-activeModifiedBorder: #3399cc;
+  --daima-tab-inactiveModifiedBorder: rgba(51, 153, 204, 0.5);
+  --daima-tab-unfocusedActiveModifiedBorder: rgba(51, 153, 204, 0.5);
+  --daima-tab-unfocusedInactiveModifiedBorder: rgba(51, 153, 204, 0.25);
+  --daima-editorPane-background: #0c1021;
+  --daima-editorGroupHeader-tabsBackground: #252526;
+  --daima-editorGroupHeader-noTabsBackground: #0c1021;
+  --daima-editorGroup-border: #444444;
+  --daima-editorGroup-dropBackground: rgba(83, 89, 93, 0.5);
+  --daima-editorGroup-dropIntoPromptForeground: #cccccc;
+  --daima-editorGroup-dropIntoPromptBackground: #252526;
+  --daima-sideBySideEditor-horizontalBorder: #444444;
+  --daima-sideBySideEditor-verticalBorder: #444444;
+  --daima-panel-background: #0c1021;
+  --daima-panel-border: rgba(128, 128, 128, 0.35);
+  --daima-panelTitle-activeForeground: #e7e7e7;
+  --daima-panelTitle-inactiveForeground: rgba(231, 231, 231, 0.6);
+  --daima-panelTitle-activeBorder: #e7e7e7;
+  --daima-panel-dropBorder: #e7e7e7;
+  --daima-panelSection-dropBackground: rgba(83, 89, 93, 0.5);
+  --daima-panelSectionHeader-background: rgba(128, 128, 128, 0.2);
+  --daima-panelSection-border: rgba(128, 128, 128, 0.35);
+  --daima-banner-background: #04395e;
+  --daima-banner-foreground: #ffffff;
+  --daima-banner-iconForeground: #3794ff;
+  --daima-statusBar-foreground: #ffffff;
+  --daima-statusBar-noFolderForeground: #ffffff;
+  --daima-statusBar-background: #007acc;
+  --daima-statusBar-noFolderBackground: #68217a;
+  --daima-statusBar-focusBorder: #ffffff;
+  --daima-statusBarItem-activeBackground: rgba(255, 255, 255, 0.18);
+  --daima-statusBarItem-focusBorder: #ffffff;
+  --daima-statusBarItem-hoverBackground: rgba(255, 255, 255, 0.12);
+  --daima-statusBarItem-compactHoverBackground: rgba(255, 255, 255, 0.2);
+  --daima-statusBarItem-prominentForeground: #ffffff;
+  --daima-statusBarItem-prominentBackground: rgba(0, 0, 0, 0.5);
+  --daima-statusBarItem-prominentHoverBackground: rgba(0, 0, 0, 0.3);
+  --daima-statusBarItem-errorBackground: #c72e0f;
+  --daima-statusBarItem-errorForeground: #ffffff;
+  --daima-statusBarItem-warningBackground: #7a6400;
+  --daima-statusBarItem-warningForeground: #ffffff;
+  --daima-activityBar-background: #333333;
+  --daima-activityBar-foreground: #ffffff;
+  --daima-activityBar-inactiveForeground: rgba(255, 255, 255, 0.4);
+  --daima-activityBar-activeBorder: #ffffff;
+  --daima-activityBar-dropBorder: #ffffff;
+  --daima-activityBarBadge-background: #007acc;
+  --daima-activityBarBadge-foreground: #ffffff;
+  --daima-statusBarItem-remoteBackground: #007acc;
+  --daima-statusBarItem-remoteForeground: #ffffff;
+  --daima-extensionBadge-remoteBackground: #007acc;
+  --daima-extensionBadge-remoteForeground: #ffffff;
+  --daima-sideBar-background: #252526;
+  --daima-sideBar-dropBackground: rgba(83, 89, 93, 0.5);
+  --daima-sideBarSectionHeader-background: rgba(128, 128, 128, 0.2);
+  --daima-titleBar-activeForeground: #cccccc;
+  --daima-titleBar-inactiveForeground: rgba(204, 204, 204, 0.6);
+  --daima-titleBar-activeBackground: #3c3c3c;
+  --daima-titleBar-inactiveBackground: rgba(60, 60, 60, 0.6);
+  --daima-menubar-selectionForeground: #cccccc;
+  --daima-menubar-selectionBackground: rgba(90, 93, 94, 0.31);
+  --daima-notifications-foreground: #cccccc;
+  --daima-notifications-background: #252526;
+  --daima-notificationLink-foreground: #3794ff;
+  --daima-notificationCenterHeader-background: #303031;
+  --daima-notifications-border: #303031;
+  --daima-notificationsErrorIcon-foreground: #f14c4c;
+  --daima-notificationsWarningIcon-foreground: #cca700;
+  --daima-notificationsInfoIcon-foreground: #3794ff;
+  --daima-commandCenter-foreground: #cccccc;
+  --daima-commandCenter-activeForeground: #cccccc;
+  --daima-commandCenter-activeBackground: rgba(90, 93, 94, 0.31);
+  --daima-commandCenter-border: rgba(128, 128, 128, 0.35);
+  --daima-editorCommentsWidget-resolvedBorder: rgba(204, 204, 204, 0.5);
+  --daima-editorCommentsWidget-unresolvedBorder: #3794ff;
+  --daima-editorCommentsWidget-rangeBackground: rgba(55, 148, 255, 0.1);
+  --daima-editorCommentsWidget-rangeBorder: rgba(55, 148, 255, 0.4);
+  --daima-editorCommentsWidget-rangeActiveBackground: rgba(55, 148, 255, 0.1);
+  --daima-editorCommentsWidget-rangeActiveBorder: rgba(55, 148, 255, 0.4);
+  --daima-editorGutter-commentRangeForeground: #37373d;
+  --daima-debugToolBar-background: #333333;
+  --daima-debugIcon-startForeground: #89d185;
+  --daima-editor-stackFrameHighlightBackground: rgba(255, 255, 0, 0.2);
+  --daima-editor-focusedStackFrameHighlightBackground: rgba(
+    122,
+    189,
+    122,
+    0.3
+  );
+  --daima-mergeEditor-change-background: rgba(155, 185, 85, 0.2);
+  --daima-mergeEditor-change-word-background: rgba(156, 204, 44, 0.2);
+  --daima-mergeEditor-conflict-unhandledUnfocused-border: rgba(
+    255,
+    166,
+    0,
+    0.48
+  );
+  --daima-mergeEditor-conflict-unhandledFocused-border: #ffa600;
+  --daima-mergeEditor-conflict-handledUnfocused-border: rgba(
+    134,
+    134,
+    134,
+    0.29
+  );
+  --daima-mergeEditor-conflict-handledFocused-border: rgba(193, 193, 193, 0.8);
+  --daima-mergeEditor-conflict-handled-minimapOverViewRuler: rgba(
+    173,
+    172,
+    168,
+    0.93
+  );
+  --daima-mergeEditor-conflict-unhandled-minimapOverViewRuler: #fcba03;
+  --daima-mergeEditor-conflictingLines-background: rgba(255, 234, 0, 0.28);
+  --daima-settings-headerForeground: #e7e7e7;
+  --daima-settings-modifiedItemIndicator: #0c7d9d;
+  --daima-settings-headerBorder: rgba(128, 128, 128, 0.35);
+  --daima-settings-sashBorder: rgba(128, 128, 128, 0.35);
+  --daima-settings-dropdownBackground: #3c3c3c;
+  --daima-settings-dropdownForeground: #f0f0f0;
+  --daima-settings-dropdownBorder: #3c3c3c;
+  --daima-settings-dropdownListBorder: #454545;
+  --daima-settings-checkboxBackground: #3c3c3c;
+  --daima-settings-checkboxForeground: #f0f0f0;
+  --daima-settings-checkboxBorder: #3c3c3c;
+  --daima-settings-textInputBackground: #3c3c3c;
+  --daima-settings-textInputForeground: #cccccc;
+  --daima-settings-numberInputBackground: #3c3c3c;
+  --daima-settings-numberInputForeground: #cccccc;
+  --daima-settings-focusedRowBackground: rgba(42, 45, 46, 0.6);
+  --daima-settings-rowHoverBackground: rgba(42, 45, 46, 0.3);
+  --daima-settings-focusedRowBorder: rgba(255, 255, 255, 0.12);
+  --daima-terminal-foreground: #cccccc;
+  --daima-terminal-selectionBackground: #253b76;
+  --daima-terminal-inactiveSelectionBackground: rgba(37, 59, 118, 0.5);
+  --daima-terminalCommandDecoration-defaultBackground: rgba(
+    255,
+    255,
+    255,
+    0.25
+  );
+  --daima-terminalCommandDecoration-successBackground: #1b81a8;
+  --daima-terminalCommandDecoration-errorBackground: #f14c4c;
+  --daima-terminalOverviewRuler-cursorForeground: rgba(160, 160, 160, 0.8);
+  --daima-terminal-border: rgba(128, 128, 128, 0.35);
+  --daima-terminal-findMatchBackground: #515c6a;
+  --daima-terminal-findMatchHighlightBackground: rgba(234, 92, 0, 0.33);
+  --daima-terminalOverviewRuler-findMatchForeground: rgba(209, 134, 22, 0.49);
+  --daima-terminal-dropBackground: rgba(83, 89, 93, 0.5);
+  --daima-testing-iconFailed: #f14c4c;
+  --daima-testing-iconErrored: #f14c4c;
+  --daima-testing-iconPassed: #73c991;
+  --daima-testing-runAction: #73c991;
+  --daima-testing-iconQueued: #cca700;
+  --daima-testing-iconUnset: #848484;
+  --daima-testing-iconSkipped: #848484;
+  --daima-testing-peekBorder: #f14c4c;
+  --daima-testing-peekHeaderBackground: rgba(241, 76, 76, 0.1);
+  --daima-testing-message-error-decorationForeground: #f14c4c;
+  --daima-testing-message-error-lineBackground: rgba(255, 0, 0, 0.2);
+  --daima-testing-message-info-decorationForeground: rgba(248, 248, 248, 0.5);
+  --daima-welcomePage-tileBackground: #252526;
+  --daima-welcomePage-tileHoverBackground: #2c2c2d;
+  --daima-welcomePage-tileShadow: rgba(0, 0, 0, 0.36);
+  --daima-welcomePage-progress-background: #3c3c3c;
+  --daima-welcomePage-progress-foreground: #3794ff;
+  --daima-debugExceptionWidget-border: #a31515;
+  --daima-debugExceptionWidget-background: #420b0d;
+  --daima-ports-iconRunningProcessForeground: #007acc;
+  --daima-statusBar-debuggingBackground: #cc6633;
+  --daima-statusBar-debuggingForeground: #ffffff;
+  --daima-statusBar-offlineBackground: #6c1717;
+  --daima-statusBar-offlineForeground: #ffffff;
+  --daima-editor-inlineValuesForeground: rgba(255, 255, 255, 0.5);
+  --daima-editor-inlineValuesBackground: rgba(255, 200, 0, 0.2);
+  --daima-editorGutter-modifiedBackground: #1b81a8;
+  --daima-editorGutter-addedBackground: #487e02;
+  --daima-editorGutter-deletedBackground: #f14c4c;
+  --daima-minimapGutter-modifiedBackground: #1b81a8;
+  --daima-minimapGutter-addedBackground: #487e02;
+  --daima-minimapGutter-deletedBackground: #f14c4c;
+  --daima-editorOverviewRuler-modifiedForeground: rgba(27, 129, 168, 0.6);
+  --daima-editorOverviewRuler-addedForeground: rgba(72, 126, 2, 0.6);
+  --daima-editorOverviewRuler-deletedForeground: rgba(241, 76, 76, 0.6);
+  --daima-debugIcon-breakpointForeground: #e51400;
+  --daima-debugIcon-breakpointDisabledForeground: #848484;
+  --daima-debugIcon-breakpointUnverifiedForeground: #848484;
+  --daima-debugIcon-breakpointCurrentStackframeForeground: #ffcc00;
+  --daima-debugIcon-breakpointStackframeForeground: #89d185;
+  --daima-notebook-cellBorderColor: #37373d;
+  --daima-notebook-focusedEditorBorder: #007fd4;
+  --daima-notebookStatusSuccessIcon-foreground: #89d185;
+  --daima-notebookStatusErrorIcon-foreground: #f48771;
+  --daima-notebookStatusRunningIcon-foreground: #cccccc;
+  --daima-notebook-cellToolbarSeparator: rgba(128, 128, 128, 0.35);
+  --daima-notebook-selectedCellBackground: #37373d;
+  --daima-notebook-selectedCellBorder: #37373d;
+  --daima-notebook-focusedCellBorder: #007fd4;
+  --daima-notebook-inactiveFocusedCellBorder: #37373d;
+  --daima-notebook-cellStatusBarItemHoverBackground: rgba(255, 255, 255, 0.15);
+  --daima-notebook-cellInsertionIndicator: #007fd4;
+  --daima-notebookScrollbarSlider-background: rgba(121, 121, 121, 0.4);
+  --daima-notebookScrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
+  --daima-notebookScrollbarSlider-activeBackground: rgba(191, 191, 191, 0.4);
+  --daima-notebook-symbolHighlightBackground: rgba(255, 255, 255, 0.04);
+  --daima-notebook-cellEditorBackground: #252526;
+  --daima-notebook-editorBackground: #0c1021;
+  --daima-keybindingTable-headerBackground: rgba(204, 204, 204, 0.04);
+  --daima-keybindingTable-rowsBackground: rgba(204, 204, 204, 0.04);
+  --daima-scm-providerBorder: #454545;
+  --daima-debugTokenExpression-name: #c586c0;
+  --daima-debugTokenExpression-value: rgba(204, 204, 204, 0.6);
+  --daima-debugTokenExpression-string: #ce9178;
+  --daima-debugTokenExpression-boolean: #4e94ce;
+  --daima-debugTokenExpression-number: #b5cea8;
+  --daima-debugTokenExpression-error: #f48771;
+  --daima-debugView-exceptionLabelForeground: #cccccc;
+  --daima-debugView-exceptionLabelBackground: #6c2022;
+  --daima-debugView-stateLabelForeground: #cccccc;
+  --daima-debugView-stateLabelBackground: rgba(136, 136, 136, 0.27);
+  --daima-debugView-valueChangedHighlight: #569cd6;
+  --daima-debugConsole-infoForeground: #3794ff;
+  --daima-debugConsole-warningForeground: #cca700;
+  --daima-debugConsole-errorForeground: #f48771;
+  --daima-debugConsole-sourceForeground: #cccccc;
+  --daima-debugConsoleInputIcon-foreground: #cccccc;
+  --daima-debugIcon-pauseForeground: #75beff;
+  --daima-debugIcon-stopForeground: #f48771;
+  --daima-debugIcon-disconnectForeground: #f48771;
+  --daima-debugIcon-restartForeground: #89d185;
+  --daima-debugIcon-stepOverForeground: #75beff;
+  --daima-debugIcon-stepIntoForeground: #75beff;
+  --daima-debugIcon-stepOutForeground: #75beff;
+  --daima-debugIcon-continueForeground: #75beff;
+  --daima-debugIcon-stepBackForeground: #75beff;
+  --daima-extensionButton-prominentBackground: #0e639c;
+  --daima-extensionButton-prominentForeground: #ffffff;
+  --daima-extensionButton-prominentHoverBackground: #1177bb;
+  --daima-extensionIcon-starForeground: #ff8e00;
+  --daima-extensionIcon-verifiedForeground: #3794ff;
+  --daima-extensionIcon-preReleaseForeground: #1d9271;
+  --daima-extensionIcon-sponsorForeground: #d758b3;
+  --daima-terminal-ansiBlack: #000000;
+  --daima-terminal-ansiRed: #cd3131;
+  --daima-terminal-ansiGreen: #0dbc79;
+  --daima-terminal-ansiYellow: #e5e510;
+  --daima-terminal-ansiBlue: #2472c8;
+  --daima-terminal-ansiMagenta: #bc3fbc;
+  --daima-terminal-ansiCyan: #11a8cd;
+  --daima-terminal-ansiWhite: #e5e5e5;
+  --daima-terminal-ansiBrightBlack: #666666;
+  --daima-terminal-ansiBrightRed: #f14c4c;
+  --daima-terminal-ansiBrightGreen: #23d18b;
+  --daima-terminal-ansiBrightYellow: #f5f543;
+  --daima-terminal-ansiBrightBlue: #3b8eea;
+  --daima-terminal-ansiBrightMagenta: #d670d6;
+  --daima-terminal-ansiBrightCyan: #29b8db;
+  --daima-terminal-ansiBrightWhite: #e5e5e5;
+  --daima-interactive-activeCodeBorder: #3794ff;
+  --daima-interactive-inactiveCodeBorder: #37373d;
+  --daima-remoteHub-decorations-addedForegroundColor: #81b88b;
+  --daima-remoteHub-decorations-modifiedForegroundColor: #e2c08d;
+  --daima-remoteHub-decorations-deletedForegroundColor: #c74e39;
+  --daima-remoteHub-decorations-conflictForegroundColor: #e4676b;
+  --daima-remoteHub-decorations-incomingAddedForegroundColor: #81b88b;
+  --daima-remoteHub-decorations-incomingModifiedForegroundColor: #e2c08d;
+  --daima-remoteHub-decorations-incomingDeletedForegroundColor: #c74e39;
+  --daima-remoteHub-decorations-incomingRenamedForegroundColor: #73c991;
+  --daima-remoteHub-decorations-possibleConflictForegroundColor: #cca700;
+  --daima-remoteHub-decorations-workspaceRepositoriesView-hasUncommittedChangesForegroundColor: #e2c08d;
+}

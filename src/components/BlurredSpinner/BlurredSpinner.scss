@@ -1,0 +1,11 @@
+.BlurredSpinnerWrapper {
+  top: 0;
+  left: 0;
+  @include box();
+  position: absolute;
+  @include make-flex();
+  z-index: 15;
+  z-index: 2;
+  backdrop-filter: blur(15px);
+  background-color: var(--daima-blurred-spinner);
+}

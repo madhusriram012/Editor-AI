@@ -1,0 +1,82 @@
+.VizLayout {
+  @include box();
+  @include make-flex($just: flex-start);
+  max-height: calc(100vh - 32px);
+  &__sort {
+    &--top,
+    &--topCompare {
+      @include box($height: 60%);
+      @include make-flex($dir: row, $align: flex-end, $just: space-evenly);
+      padding: 30px 20px;
+      flex-wrap: wrap;
+      border-bottom: 1.5px solid var(--daima-tree-indentGuidesStroke);
+    }
+
+    &--ComparePartition {
+      @include box(auto);
+      @include make-flex();
+      gap: 30px;
+    }
+
+    &--bottom {
+      @include box($height: 40%);
+      @include make-flex($dir: row, $just: flex-start);
+      // gap: 10px;
+    }
+
+    &--algos,
+    &--controls {
+      @include box(300px);
+      padding: 14px 30px;
+      @include make-flex($just: flex-start);
+      gap: 14px;
+      border-right: 1.5px solid var(--daima-tree-indentGuidesStroke);
+    }
+
+    &--pseudoCode {
+      @include box(calc(100% - 600px));
+      overflow: auto;
+    }
+
+    &--controlsRow {
+      @include box(100%, auto);
+      @include make-flex($align: flex-start);
+      gap: 10px;
+
+      span {
+        @include box(100%, auto);
+        @include make-flex($dir: row, $just: space-between);
+        pre {
+          line-height: 100%;
+          @include make-flex($dir: row, $align: flex-end);
+          font-size: 16px;
+          @include box(auto);
+        }
+      }
+    }
+  }
+
+  &__pathBox {
+    @include box();
+
+    &--top {
+      @include box($height: calc(100% - 182px));
+      @include make-flex();
+      border-bottom: 1.5px solid var(--daima-tree-indentGuidesStroke);
+      padding: 5px 1px;
+    }
+
+    &--bottom {
+      @include box($height: 182px);
+      @include make-flex($dir: row, $just: flex-start);
+    }
+
+    &--left {
+      @include box(300px);
+      @include make-flex($just: flex-start);
+      gap: 12px;
+      padding: 12px 12px 10px;
+      border-right: 1.5px solid var(--daima-tree-indentGuidesStroke);
+    }
+  }
+}

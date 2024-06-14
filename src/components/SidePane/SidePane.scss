@@ -1,0 +1,86 @@
+.SidePane {
+  position: relative;
+  background-color: var(--daima-sideBar-background);
+  color: var(--daima-sideBar-foreground);
+  border-right: 1px solid var(--daima-tree-indentGuidesStroke);
+
+  &__sash {
+    position: absolute;
+    right: -2px;
+    top: 0;
+    @include box(4px);
+    cursor: ew-resize;
+    z-index: 2;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+
+    &:active,
+    &:hover {
+      background-color: var(--daima-sash-hoverBorder);
+    }
+  }
+
+  &__content {
+    @include box($height: calc(100vh - 67px));
+    padding-top: 5px;
+    overflow: auto;
+    padding-bottom: 40px;
+    position: relative;
+    &--inner {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__headerTabs {
+    @include box(100%, 35px);
+    @include make-flex($dir: row, $just: flex-start, $align: center);
+    // padding: 0 15px;
+    border-bottom: 1.5px solid var(--daima-tree-indentGuidesStroke);
+    list-style: none;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-size: 11px;
+      cursor: default;
+      font-weight: 400;
+      margin: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+
+    &--item,
+    &--activeItem {
+      @include box(auto);
+      @include make-flex();
+      border-bottom: 2.5px solid transparent;
+
+      button {
+        padding: 0 12px 0 8px;
+        @include box();
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        @include make-flex($dir: row);
+        font-size: 15px;
+        color: var(--daima-activityBar-foreground);
+        gap: 5px;
+      }
+    }
+
+    &--activeItem {
+      background-color: var(--daima-editorPane-background);
+      border-bottom: 2.5px solid var(--daima-editorError-foreground);
+      color: var(--daima-tab-activeForeground);
+    }
+  }
+}

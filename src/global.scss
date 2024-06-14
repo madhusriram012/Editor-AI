@@ -1,0 +1,52 @@
+@import "./styles/Fonts.scss";
+@import "./styles/Themes/TomorrowNightBlue.scss";
+@import "./styles/Themes/Github.scss";
+@import "./styles/Themes/Blackboard.scss";
+@import "./styles/Markdown.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--daima-scrollbarSlider-background);
+
+  &:hover {
+    background: var(--daima-scrollbarSlider-hoverBackground);
+    cursor: pointer;
+  }
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+#root,
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  font-family: "SF-Pro", sans-serif;
+  // font-family: -apple-system, "SF-Pro", BlinkMacSystemFont, "Segoe UI", "Roboto",
+  //   "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  //   sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.test {
+  color: #005cc5;
+}

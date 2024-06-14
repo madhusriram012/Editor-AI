@@ -1,0 +1,232 @@
+.ToolBar {
+  @include make-flex($dir: row, $just: space-between);
+  @include box(100%, 32px);
+  // gap: 5px;
+  border-bottom: 1.5px solid var(--daima-tree-indentGuidesStroke);
+  // background-color: var(--daima-editorGroupHeader-tabsBackground);
+  background-color: var(--daima-editorPane-background);
+  padding-left: 7px;
+  img {
+    @include box(30px, 32px);
+    padding: 6px;
+  }
+
+  &__left,
+  &__right {
+    @include make-flex($dir: row, $just: flex-start);
+  }
+
+  &__icon {
+    &--sidePanelToggle,
+    &--toggleFullScreen,
+    &--liveHelp,
+    &--learn,
+    &--savingStatus {
+      @include box(auto, 32px);
+      position: relative;
+      min-width: 30px;
+      @include make-flex($dir: row);
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: var(--daima-activityBar-foreground) !important;
+      &:hover {
+        background-color: var(--daima-toolbar-hoverBackground);
+      }
+    }
+
+    &--savingStatus {
+      gap: 8px;
+      padding: 0 8px;
+
+      p {
+        font-size: 14px;
+      }
+
+      &::before {
+        animation: infinite 1s spinner;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &--learn {
+      cursor: not-allowed;
+    }
+  }
+
+  &__liveHelp {
+    z-index: 10;
+    top: 31px;
+    right: 29px;
+    position: fixed;
+    overflow: hidden;
+    border-radius: 5px;
+    color: rgb(240, 240, 240);
+    background-color: var(--daima-menu-background);
+    box-shadow: var(--daima-widget-shadow) 0px 2px 8px;
+    // min-width: 185px;
+    width: 185px;
+
+    height: auto;
+    list-style: none;
+
+    padding: 7px;
+    border: 1px solid var(--daima-tree-indentGuidesStroke);
+
+    &--item,
+    &--active,
+    &--disabled,
+    &--dangerItem,
+    &--copyLabel {
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+
+      border-radius: 3px;
+      list-style: none;
+      position: relative;
+      color: var(--daima-foreground);
+      cursor: pointer;
+      @include box(100%, 26px);
+      &:hover {
+        background-color: var(--daima-menu-selectionBackground);
+
+        & button > :last-child {
+          color: var(--daima-activityBar-foreground);
+        }
+      }
+      button {
+        @include box();
+        color: inherit;
+        cursor: inherit;
+        background-color: transparent;
+        border: none;
+        font-size: 14px;
+        outline: none;
+        padding: 0 7px 0 7px;
+        @include make-flex($dir: row, $just: space-between);
+
+        span {
+          &:first-child {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+
+        pre {
+          font-size: 13px;
+        }
+      }
+
+      input {
+        @include box();
+        border: 0.5px solid var(--daima-tree-indentGuidesStroke);
+        background-color: var(--daima-editorPane-background) !important;
+        padding: 0 7px;
+        border-radius: 3px;
+
+        font-size: 12px;
+        font-family: monospace;
+        color: var(--daima-foreground) !important;
+        &:active,
+        &:focus {
+          border: 1px solid var(--daima-tree-indentGuidesStroke);
+          outline: none;
+          background-color: var(--daima-input-activeOptionBackground);
+        }
+        &:hover {
+          background-color: var(--daima-input-background);
+        }
+      }
+    }
+
+    &--separator {
+      border-radius: 0;
+      padding: 0;
+      @include box(100%, 1px);
+      margin: 5px 0;
+      background-color: var(--daima-menu-separatorBackground);
+    }
+
+    &--dangerItem {
+      color: var(--daima-dangerForeground);
+    }
+
+    &--active {
+      background-color: var(--daima-menu-selectionBackground);
+    }
+
+    &--disabled {
+      color: var(--daima-disabledForeground);
+      cursor: not-allowed;
+      &:hover {
+        background-color: transparent;
+
+        & button > :last-child {
+          color: var(--daima-disabledForeground);
+        }
+      }
+    }
+
+    &--copyLabel {
+      background-color: var(--daima-editorPane-background) !important;
+      color: var(--daima-foreground) !important;
+      @include box();
+      @include make-flex($dir: row, $just: space-between);
+      border: 1px solid var(--daima-tree-indentGuidesStroke) !important;
+      position: relative;
+      pre {
+        @include box(auto);
+        @include make-flex();
+      }
+      button {
+        @include box(auto);
+      }
+      i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        @include box();
+        @include make-flex($dir: row-reverse);
+        background-color: var(--daima-editorPane-background) !important;
+        gap: 6px;
+
+        color: var(--daima-activityBar-foreground);
+        p {
+          font-size: 14px;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(to right, rgb(175, 82, 222), rgb(0, 122, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gemini_analyze{
+  @include box(auto, 32px);
+  position: relative;
+  min-width: 30px;
+  @include make-flex($dir: row);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--daima-activityBar-foreground) !important;
+  
+}

@@ -1,0 +1,15 @@
+.FancyButton {
+  @include box(100%, 35px);
+
+  @include make-flex();
+  background-color: var(--daima-editorPane-background);
+  color: var(--daima-foreground);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  border: 1.5px solid var(--daima-tree-indentGuidesStroke);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--daima-editorStickyScrollHover-background);
+  }
+}

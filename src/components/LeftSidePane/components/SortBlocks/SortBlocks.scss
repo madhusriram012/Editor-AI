@@ -1,0 +1,28 @@
+.SortBlocks {
+  list-style: none;
+  @include box(auto, auto);
+  @include make-flex($dir: row, $align: flex-end);
+  gap: 5px;
+
+  &--mergeSort,
+  &--quickSort,
+  &--bubbleSort {
+    height: 80%;
+  }
+  &__blockBox {
+    @include box(6px, auto);
+    @include make-flex($just: flex-end);
+    overflow: hidden;
+    gap: 6px;
+    background-color: aqua;
+
+    &--item {
+      @include box(100%, auto);
+    }
+    pre {
+      font-size: 16px;
+      position: absolute;
+      transform: translateY(20px);
+    }
+  }
+}

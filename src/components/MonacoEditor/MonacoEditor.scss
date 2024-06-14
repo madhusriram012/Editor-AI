@@ -1,0 +1,5 @@
+.MonacoEditorWrapper {
+  @include make-flex($align: flex-start);
+  @include box();
+  font-size: 14px;
+}
