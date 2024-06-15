@@ -7,6 +7,7 @@ import "./ToolBar.scss";
 import { customAlphabet } from "nanoid";
 import { useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import FancyButton from "../FancyButton/FancyButton";
 
 function ToolBar({ promptText, setPromptText }) {
   const API_KEY = "AIzaSyBSSw__qdi-2LfTX5TLzgRGNtH8R7jhQPo";
@@ -32,7 +33,7 @@ function ToolBar({ promptText, setPromptText }) {
   const yProvider = useStoreState((state) => state.yProvider);
   const [showSessionMenu, setShowSessionMenu] = useState(false);
   const [joinSessionInput, setJoinSessionInput] = useState(false);
-
+  const [apiResult,setApiResult]=useState("");
   const [copiedState, setCopiedState] = useState(false);
 
   useEffect(() => {
@@ -56,14 +57,19 @@ function ToolBar({ promptText, setPromptText }) {
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const textResult = await response.text();
-
     console.log(textResult);
+    setApiResult(textResult);
   };
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleButtonClick = async () => {
+    await fetchDataReturnComplexity();
+    handleShow();
+  };
 
   return (
     <div className="ToolBar" ref={outRef}>
@@ -93,7 +99,7 @@ function ToolBar({ promptText, setPromptText }) {
           // onClick={async () => {
           //   await fetchDataReturnComplexity();
           // }}
-          onClick={handleShow}
+          onClick={handleButtonClick}
         >
           <span className="gradient-text"> Analyze Complexity</span>
         </button>
@@ -104,18 +110,16 @@ function ToolBar({ promptText, setPromptText }) {
                 <span className="close" onClick={handleClose}>
                   &times;
                 </span>
-                <h2>Modal heading</h2>
+                <h2>Answer</h2>
               </div>
               <div className="modal-body">
-                <p>Woohoo, you are reading this text in a modal!</p>
+                <p>{apiResult}</p>
               </div>
               <div className="modal-footer">
-                <button className="btn btn-secondary" onClick={handleClose}>
+                <FancyButton className="btn btn-secondary" onClick={handleClose}>
                   Close
-                </button>
-                <button className="btn btn-primary" onClick={handleClose}>
-                  Save Changes
-                </button>
+                </FancyButton>
+                
               </div>
             </div>
           </div>
