@@ -111,7 +111,7 @@ function LeftPane() {
                 setActiveItem("gemini");
               }
             }}
-            data-icon={String.fromCharCode(60064)}
+            data-icon={String.fromCharCode(60242)}
           >
             <p>Gemini</p>
           </button>

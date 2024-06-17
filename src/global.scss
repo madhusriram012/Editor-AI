@@ -8,7 +8,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 ::-webkit-scrollbar {
@@ -30,7 +29,6 @@
   background: transparent;
 }
 
-
 #root,
 html,
 body {
@@ -49,4 +47,44 @@ body {
 
 .test {
   color: #005cc5;
+}
+
+.sendBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: 1100px;
+  height: 50px;
+  padding: 0 10px; /* Adjust padding as needed */
+  border: 1px solid grey;
+  border-radius: 15px;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 915px) {
+  .input-field {
+    width: 100%;
+    padding: 40px 30px;
+  }
 }

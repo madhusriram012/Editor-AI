@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import FancyButton from "../FancyButton/FancyButton";
 
 export function BinarySearchMarkdown() {
   return (
@@ -48,9 +49,9 @@ export function BinarySearchMarkdown() {
       <br />
       <h3>Clarify yours doubts on binary tree with our super model</h3>
       <br />
-      <div>
-        <input style={{ height: "30px", width: "1000px" }} />
-        <button onClick={() => {}}>Get Data</button>
+      <div className="input-container">
+        <input className="input-field" />
+        <button onClick={() => {}} className="sendBtn" data-icon={String.fromCharCode(60065)} title="Up"/>
       </div>
     </div>
   );

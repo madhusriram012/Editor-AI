@@ -48,7 +48,7 @@ function ToolBar({ promptText, setPromptText }) {
   });
 
   const fetchDataReturnComplexity = async () => {
-    const prompt = `What is the time complexity of the following code?\n\n${promptText}`;
+    const prompt = `What is the time complexity of the following code? Just give the time complexity, The answer should look like ,The Time Complexity of the following code is : O(something)\n\n${promptText}`;
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -85,20 +85,17 @@ function ToolBar({ promptText, setPromptText }) {
           data-icon={String.fromCharCode(sidePanelState.left ? 60403 : 60418)}
           onClick={() => setSidePanelState({ left: !sidePanelState.left })}
         />
-        <span
+        {/* <span
           className="ToolBar__icon--sidePanelToggle"
           title="Toggle Side Panel"
           data-icon={String.fromCharCode(sidePanelState.right ? 60404 : 60416)}
           onClick={() => setSidePanelState({ right: !sidePanelState.right })}
-        />
+        /> */}
       </div>
       <div className="ToolBar__right">
         <button
           style={{ marginRight: "30px" }}
           className="gemini_analyze"
-          // onClick={async () => {
-          //   await fetchDataReturnComplexity();
-          // }}
           onClick={handleButtonClick}
         >
           <span className="gradient-text"> Analyze Complexity</span>
@@ -113,7 +110,7 @@ function ToolBar({ promptText, setPromptText }) {
                 <h2>Answer</h2>
               </div>
               <div className="modal-body">
-                <p>{apiResult}</p>
+                <p style={{color:"black"}}>{apiResult}</p>
               </div>
               <div className="modal-footer">
                 <FancyButton className="btn btn-secondary" onClick={handleClose}>
